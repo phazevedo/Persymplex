@@ -22,7 +22,7 @@ function set_var_z_variables() {
     arr_var_z = [];
     var teste = document.querySelectorAll("div[id=div_z] > ul > li > div > input");
     teste.forEach(function (as) {
-        arr_var_z.push(parseInt(as.value));
+        arr_var_z.push(Number(as.value));
     });
     if (document.getElementById("selector").checked)
         arr_var_z = arr_var_z.map(function (arr) { return arr * -1; });
