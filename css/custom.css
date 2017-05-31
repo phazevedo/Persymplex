@@ -1,0 +1,42 @@
+.flex-container{
+    display: flex;
+    flex-flow: column wrap;    
+}
+#initial_info{
+    flex-direction: row;
+    justify-content: space-between;
+}
+.fill{
+    margin: 1em;
+    flex: 1 1 auto;
+}
+.out{
+    display: none;
+}
+
+ul{
+    display: flex;
+    justify-content: flex-start;
+    flex-flow: row wrap;
+}
+li{
+    flex: 1 1 auto;
+    max-width: 3em;
+    margin: 0.5em;
+    display: flex;
+}
+.label_center{
+    align-self: center;
+    font-size: 3.5em;    
+}
+.label_x{
+    align-self: center;
+}
+.input_dynamic{
+    text-align: center;
+}
+.horizontal-align{
+    display: flex;
+    flex-flow: row nowrap; 
+    align-items: center;   
+}

@@ -9,8 +9,8 @@
     <meta name="description" content="persymplex">
     <meta charset="utf-8">
 
-    <link rel="stylesheet" href="reset.css">
-    <link rel="stylesheet" href="custom.css">
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/custom.css">
     <link href="https://fonts.googleapis.com/css?family=Roboto:400,500,700,900" rel="stylesheet">
     <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/css/materialize.min.css">
@@ -20,29 +20,44 @@
 <body>
     <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/js/materialize.min.js"></script>
-    <nav class="purple lighten-4 z-depth-5">
+    <nav class="purple lighten-4">
         <div class="nav-wrapper">
-            <a href="#" class="brand-logo center black-text">Persymplex</a>
+            <a href="#" class="brand-logo center white-text">Persymplex</a>
         </div>
     </nav>
     <div class="container">
         <div class="card">
-            <div class="card-content">
-                <div class="input-field">
-                    <input id="function_z" type="text" class="validate">
-                    <label for="function_z">Função Z</label>
+            <div class="card-content flex-container">
+                <div id="initial_info">
+                    <div class="input-field fill">
+                        <input id="num_var" type="number" required>
+                        <label for=num_var>Informe o número de variáveis na função Z:</label>
+                    </div>
+                    <div class="input-field fill">
+                        <input id="num_rest" type="number" required>
+                        <label for=num_rest>Informe o número de restrições na função Z:</label>
+                    </div>
                 </div>
+                <a onclick="addFields();">Gerar Campos</a>
+                <div id="show"></div>
+                
                 <div class="switch">
                     <label>
-                    Maximizar
-                    <input type="checkbox">
-                    <span class="lever"></span>
-                    Minimizar
+                        Maximizar
+                            <input id="selector" type="checkbox">
+                            <span class="lever"></span>         
+                        Minimizar
                     </label>
                 </div>
+                <a onclick="calcular();">Calcular</a>
+                <div id="tables"></div>
+                <div id="post-optimization"></div>
+                
             </div>
         </div>
     </div>
+    <script src="js/home.js"></script>
+    <script src="js/functions.js"></script>
 </body>
 
 </html>
