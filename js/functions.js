@@ -35,14 +35,14 @@ function set_rest_variables() {
         var vars = document.querySelectorAll(selector_string);
         arr = [];
         vars.forEach(function (as) {
-            arr.push(parseInt(as.value));
+            arr.push(Number(as.value));
         });
         arr_arr_var_rests.push(arr);
 
         selector_string = "div[id=" + divs.id + "] > div > input";
         var inputf = document.querySelector(selector_string);
 
-        arr_arr_fs.push(parseInt(inputf.value));
+        arr_arr_fs.push(Number(inputf.value));
     });
 }
 
@@ -165,7 +165,7 @@ function calculo() {
             continue;
 
         var fator = -1 * matrix[row][entra];
-
+        debugger;
         for (var column = 1; column < matrix[row].length; column++)
             matrix[row][column] = (matrix[sai][column] * fator) + matrix[row][column];
     }
@@ -187,7 +187,7 @@ function solucao()
     paragrafos += '<div class="item">' + solucao + ' = ' + val + '</div>';
   }
   outputDiv.innerHTML = "<div class='ui list'>"+ header + paragrafos+ "</div>";
-}
+};
 
 function CondicaoParada() {
     //pega a linha de z
