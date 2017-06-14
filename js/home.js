@@ -1,27 +1,25 @@
 var jq = jQuery.noConflict();
 var num_var = 0;
 var num_rest = 0;
-var input_var = document.getElementById("num_var");
-var input_rest = document.getElementById("num_rest");
 
 function defineVariables() {
-    num_var = input_var.value;
-    num_rest = input_rest.value;
+    num_var = input_var.val();
+    num_rest = input_rest.val();
 }
 
 function GenerateVarInputs(whith_z = false) {
     var documentoUL = document.createElement('ul');
     for (var i = 0; i < num_var; i++) {
-        if (i > 0) 
+        if (i > 0)
             documentoUL.innerHTML += "<label class='label_center'> + </label>";
         var newList = '<li>';
         newList += "<div class='input-field center'><input type='text' class= 'input_dynamic' id='input_var" + i + "'/>";
         newList += "<label for='input_var" + i + "'> X" + (i + 1) + " </label></div></li>";
-        if(i == (num_var-1) && whith_z)
+        if (i == (num_var - 1) && whith_z)
             newList += "<label class='label_center'> = Z <br></label>";
         newList += '';
         documentoUL.innerHTML += newList;
-    }   
+    }
     return documentoUL;
 }
 
@@ -38,48 +36,37 @@ function GenerateRestInputs() {
         input_div += "<label for='input_rest" + i + "'> F" + (i + 1) + " </label></div>";
         newList.innerHTML += input_div + "</div>";
         documentoUL.appendChild(newList);
-    }   
+    }
     return documentoUL;
 }
 
 function addFields() {
     // document.getElementById("funcaoZ_fields").appendChild(newList);    
     // if (input_var.is(":valid") && input_rest.is(":valid")) {
-        
-        var show = document.getElementById("show");
-        jQuery("#show").empty();
+    input_var = $("#num_var");
+    input_rest = $("#num_rest");
+    if (input_var.val() && input_rest.val()) {
+        clear_show();
+        clear();
+        var show = $("#show");;
+        show.toggle();
+        show.empty();
         defineVariables();
-        show.innerHTML += "<strong>Variaveis da Função Z<strong>";
+        show.prepend("<strong>Variaveis da Função Z<strong>");
         div_z = document.createElement('div');
         div_z.id = 'div_z';
         div_z.appendChild(GenerateVarInputs(true));
-        show.appendChild(div_z);
+        show.append(div_z);
 
         div_rest = document.createElement('div');
         div_rest.id = 'div_rest';
         div_rest.appendChild(GenerateRestInputs());
-        show.innerHTML += "<strong>Variaveis de Restrição<strong>";
-        show.appendChild(div_rest);        
-    // }
-    // for (var i = 0; i < num_rest; i++) {
-    //     var newField = document.createElement('li');
-    //     newField.className = "funcaoZ_inputs";
-    //     var FieldInput = "<input type='text' id='input_rest" + i + "'/>";
-    //     FieldLabel = "<label> X" + (i+1) + " </label>";
-    //     newField.innerHTML = FieldInput + FieldLabel + "</li>";
-    //     document.getElementById("funcaoZ_fields").appendChild(newField);    
-    // }
+        show.append("<strong>Variaveis de Restrição<strong>");
+        show.append(div_rest);
+        $("#btn_calc").show();
+    }
+    else {
+        alert("Necessário informar o número de variáveis e restrições");
+    }
+
 }
-
-// function addRestricoes() {
-//     if (input_var.is(":valid") && input_rest.is(":valid")) {
-//     defineVariables();
-//     for (var i = 0; i < num_var; i++) {
-//         var newField = document.createElement('li');
-//         newField.className = "funcaoZ_inputs";
-//         var FieldInput = "<input type='text' id='input_var" + i + "'/>";
-//         FieldLabel = "<label> X" + (i+1) + " </label>";
-//         newField.innerHTML = FieldInput + FieldLabel + "</li>";
-//         document.getElementById("funcaoZ_fields").appendChild(newField);    }
-// }}
-

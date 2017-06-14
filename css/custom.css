@@ -3,8 +3,10 @@
     flex-flow: column wrap;    
 }
 #initial_info{
-    flex-direction: row;
+    display: flex;
+    flex-flow: row nowrap;
     justify-content: space-between;
+    align-items: center;
 }
 .fill{
     margin: 1em;
@@ -39,4 +41,20 @@ li{
     display: flex;
     flex-flow: row nowrap; 
     align-items: center;   
+}
+
+.switch{
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    align-items: center;
+    margin-right: 2em;
+}
+
+#btn_calc{
+    align-self: flex-end;
+}
+
+#num_var, #num_rest{
+    max-width: 3em;
 }

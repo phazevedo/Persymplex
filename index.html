@@ -31,33 +31,34 @@
                 <div id="initial_info">
                     <div class="input-field fill">
                         <input id="num_var" type="number" required>
-                        <label for=num_var>Informe o número de variáveis na função Z:</label>
+                        <label for=num_var>Nº Z:</label>
                     </div>
                     <div class="input-field fill">
                         <input id="num_rest" type="number" required>
-                        <label for=num_rest>Informe o número de restrições na função Z:</label>
+                        <label for=num_rest>Nº Restricoes</label>
                     </div>
-                </div>
-                <a onclick="addFields();">Gerar Campos</a>
-                <div id="show"></div>
-                
-                <div class="switch">
-                    <label>
+                    <div class="switch">
+                        <label>
                         Maximizar
                             <input id="selector" type="checkbox">
                             <span class="lever"></span>         
                         Minimizar
                     </label>
+                    </div>
+                <a id="btn_g_fields" onclick="addFields();" class="btn-floating btn-large waves-effect waves-light purple lighten-4"> <i class="material-icons">send</i></a>
                 </div>
-                <a onclick="calcular();">Calcular</a>
-                <div id="tables"></div>
+                <div id="show" style="display: none"></div>
+                <a id="btn_calc" onclick="calcular();" style="display: none" class="waves-effect waves-light btn-large purple lighten-4 black-text"><i class="material-icons right">call_received</i>Calcular</a>
+                <div id="tables" class = "purple lighten-4 "></div>
                 <div id="post-optimization"></div>
-                
+                <div id="sensibilidade"></div>
+
             </div>
         </div>
     </div>
     <script src="js/home.js"></script>
     <script src="js/functions.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 </body>
 
 </html>
