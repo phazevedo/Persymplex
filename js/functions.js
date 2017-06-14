@@ -2,7 +2,7 @@ var jq = jQuery.noConflict();
 var loops = 1;
 var arr_var_z = [];
 var arr_arr_var_rests = [];
-var STOPBYLOOP = 1001;
+var STOPBYLOOP = 100;
 var arr_arr_fs = [];
 
 function clear() {
@@ -11,6 +11,7 @@ function clear() {
     arr_arr_fs = [];
     $("#tables").empty();
     $("#post-optimization").empty();
+    $("#sensibilidade").empty();
 }
 
 function clear_show() {
@@ -26,7 +27,7 @@ function calcular() {
     buildTable();
     clear_show();
     // $('#btn_calc').hide();
-    while (loops < 1000 && CondicaoParada())
+    while (loops < 100 && CondicaoParada())
         calculo();
     Sensibilidade();
     solucao();
@@ -39,6 +40,9 @@ function verify_fields() {
         if (!$.isNumeric(field.val()))
             field.value = 0;
     });
+    if ($("#num_iter").val() != 0) {
+        STOPBYLOOP = $("#num_iter").val();
+    }
 }
 
 
@@ -197,8 +201,7 @@ function calculo() {
         for (var column = 1; column < matrix[row].length; column++)
             matrix[row][column] = (matrix[sai][column] * fator) + matrix[row][column];
     }
-    loops++;
-    printTable('Iteração ' + loops);
+    printTable('Iteração ' + loops++);
 }
 
 function solucao() {
@@ -266,8 +269,6 @@ function Sensibilidade() {
             minDelta += original;
             maxDelta += original;
             paragraphs += '<tr><td>' + restricao + '</td><td>' + original + '</td><td>' + shadowPrice + '</td><td>' + minDelta + '</td><td>' + maxDelta + '</td></tr>';
-        } else {
-            paragraphs += '<tr><td>' + restricao + '</td><td>' + original + '</td><td>' + shadowPrice + '</td><td>Alterações são insignificantes</td></td>';
         }
     }
     //Calcula Sensibilidade das variaveis de Decisão
@@ -299,9 +300,7 @@ function Sensibilidade() {
             minDeltaX += originalX;
             maxDeltaX += originalX;
             paragraphsX += '<tr><td>' + decision + '</td><td>' + originalX + '</td><td>' + shadowPriceX + '</td><td>' + minDeltaX + '</td><td>' + maxDeltaX + '</td></tr>';
-        } else {
-            paragraphsX += '<tr><td>' + decision + '</td><td>' + originalX + '</td><td>' + shadowPriceX + '</td><td>Alterações são insignificantes</td></td>';
-        }
+        } 
     });
 
 

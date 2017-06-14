@@ -55,6 +55,6 @@ li{
     align-self: flex-end;
 }
 
-#num_var, #num_rest{
+#initial_info input{
     max-width: 3em;
 }

@@ -45,11 +45,15 @@
                         Minimizar
                     </label>
                     </div>
-                <a id="btn_g_fields" onclick="addFields();" class="btn-floating btn-large waves-effect waves-light purple lighten-4"> <i class="material-icons">send</i></a>
+                    <div class="input-field fill">
+                        <input id="num_iter" type="number" required>
+                        <label for="num_iter">Iteracoes</label>
+                    </div>
+                    <a id="btn_g_fields" onclick="addFields();" class="btn-floating btn-large waves-effect waves-light purple lighten-4"> <i class="material-icons">send</i></a>
                 </div>
                 <div id="show" style="display: none"></div>
                 <a id="btn_calc" onclick="calcular();" style="display: none" class="waves-effect waves-light btn-large purple lighten-4 black-text"><i class="material-icons right">call_received</i>Calcular</a>
-                <div id="tables" class = "purple lighten-4 "></div>
+                <div id="tables" class="purple lighten-4 "></div>
                 <div id="post-optimization"></div>
                 <div id="sensibilidade"></div>
 
